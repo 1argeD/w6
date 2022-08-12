@@ -5,16 +5,17 @@ package com.sparta.w6.service;
 
 
 
-import com.sparta.mini_6team.controller.response.CommentResponseDto;
-import com.sparta.mini_6team.controller.response.PostResponseDto;
-import com.sparta.mini_6team.controller.response.ResponseDto;
-import com.sparta.mini_6team.domain.Comment;
-import com.sparta.mini_6team.domain.Member;
-import com.sparta.mini_6team.domain.Post;
-import com.sparta.mini_6team.jwt.TokenProvider;
-import com.sparta.mini_6team.repository.CommentRepository;
-import com.sparta.mini_6team.repository.PostRepository;
-import com.sparta.mini_6team.request.PostRequestDto;
+
+import com.sparta.w6.controller.response.CommentResponseDto;
+import com.sparta.w6.controller.response.PostResponseDto;
+import com.sparta.w6.controller.response.ResponseDto;
+import com.sparta.w6.domain.Comment;
+import com.sparta.w6.domain.Member;
+import com.sparta.w6.domain.Post;
+import com.sparta.w6.jwt.TokenProvider;
+import com.sparta.w6.repository.CommentRepository;
+import com.sparta.w6.repository.PostRepository;
+import com.sparta.w6.request.PostRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

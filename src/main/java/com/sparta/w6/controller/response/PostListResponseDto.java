@@ -1,7 +1,8 @@
 package com.sparta.w6.controller.response;
 
 
-import com.sparta.mini_6team.domain.Post;
+
+import com.sparta.w6.domain.Post;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

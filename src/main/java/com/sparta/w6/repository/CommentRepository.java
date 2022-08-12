@@ -1,10 +1,9 @@
 package com.sparta.w6.repository;
 
 
-
-import com.sparta.mini_6team.domain.Comment;
-import com.sparta.mini_6team.domain.Member;
-import com.sparta.mini_6team.domain.Post;
+import com.sparta.w6.domain.Comment;
+import com.sparta.w6.domain.Member;
+import com.sparta.w6.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

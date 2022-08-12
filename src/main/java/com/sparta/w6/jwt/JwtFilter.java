@@ -1,8 +1,8 @@
 package com.sparta.w6.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sparta.mini_6team.controller.response.ResponseDto;
-import com.sparta.mini_6team.service.UserDetailsServiceImpl;
+import com.sparta.w6.controller.response.ResponseDto;
+import com.sparta.w6.service.UserDetailsServiceImpl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

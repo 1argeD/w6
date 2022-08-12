@@ -1,9 +1,10 @@
 package com.sparta.w6.configuration;
 
 
-import com.sparta.mini_6team.jwt.JwtFilter;
-import com.sparta.mini_6team.jwt.TokenProvider;
-import com.sparta.mini_6team.service.UserDetailsServiceImpl;
+
+import com.sparta.w6.jwt.JwtFilter;
+import com.sparta.w6.jwt.TokenProvider;
+import com.sparta.w6.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

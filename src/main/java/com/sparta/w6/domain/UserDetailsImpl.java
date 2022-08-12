@@ -2,7 +2,8 @@ package com.sparta.w6.domain;
 
 
 
-import com.sparta.mini_6team.shared.Authority;
+
+import com.sparta.w6.shared.Authority;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

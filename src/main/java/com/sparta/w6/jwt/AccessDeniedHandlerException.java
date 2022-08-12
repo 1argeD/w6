@@ -3,7 +3,8 @@ package com.sparta.w6.jwt;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sparta.mini_6team.controller.response.ResponseDto;
+
+import com.sparta.w6.controller.response.ResponseDto;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;

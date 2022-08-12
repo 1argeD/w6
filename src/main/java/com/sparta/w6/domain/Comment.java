@@ -4,15 +4,14 @@ package com.sparta.w6.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sparta.mini_6team.request.CommentRequestDto;
+
+import com.sparta.w6.request.CommentRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Builder
 @Getter

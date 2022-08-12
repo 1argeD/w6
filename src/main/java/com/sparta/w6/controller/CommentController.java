@@ -1,9 +1,10 @@
 package com.sparta.w6.controller;
 
 
-import com.sparta.mini_6team.controller.response.ResponseDto;
-import com.sparta.mini_6team.request.CommentRequestDto;
-import com.sparta.mini_6team.service.CommentService;
+
+import com.sparta.w6.controller.response.ResponseDto;
+import com.sparta.w6.request.CommentRequestDto;
+import com.sparta.w6.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

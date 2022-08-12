@@ -1,7 +1,8 @@
 package com.sparta.w6.controller;
 
 
-import com.sparta.mini_6team.controller.response.ResponseDto;
+
+import com.sparta.w6.controller.response.ResponseDto;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

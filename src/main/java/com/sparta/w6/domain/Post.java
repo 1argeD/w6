@@ -4,7 +4,8 @@ package com.sparta.w6.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import com.sparta.mini_6team.request.PostRequestDto;
+
+import com.sparta.w6.request.PostRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,13 +1,13 @@
 package com.sparta.w6.jwt;
 
 
-import com.sparta.mini_6team.controller.response.ResponseDto;
-import com.sparta.mini_6team.domain.Member;
-import com.sparta.mini_6team.domain.RefreshToken;
-import com.sparta.mini_6team.domain.UserDetailsImpl;
-import com.sparta.mini_6team.repository.RefreshTokenRepository;
-import com.sparta.mini_6team.request.TokenDto;
-import com.sparta.mini_6team.shared.Authority;
+import com.sparta.w6.controller.response.ResponseDto;
+import com.sparta.w6.domain.Member;
+import com.sparta.w6.domain.RefreshToken;
+import com.sparta.w6.domain.UserDetailsImpl;
+import com.sparta.w6.repository.RefreshTokenRepository;
+import com.sparta.w6.request.TokenDto;
+import com.sparta.w6.shared.Authority;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

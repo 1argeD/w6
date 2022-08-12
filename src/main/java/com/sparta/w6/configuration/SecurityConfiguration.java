@@ -1,10 +1,11 @@
 package com.sparta.w6.configuration;
 
 
-import com.sparta.mini_6team.jwt.AccessDeniedHandlerException;
-import com.sparta.mini_6team.jwt.AuthenticationEntryPointException;
-import com.sparta.mini_6team.jwt.TokenProvider;
-import com.sparta.mini_6team.service.UserDetailsServiceImpl;
+
+import com.sparta.w6.jwt.AccessDeniedHandlerException;
+import com.sparta.w6.jwt.AuthenticationEntryPointException;
+import com.sparta.w6.jwt.TokenProvider;
+import com.sparta.w6.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -68,7 +69,8 @@ public class SecurityConfiguration {
                 .antMatchers("/api/member/**").permitAll()
                 .antMatchers("/api/post/**").permitAll()
                 .antMatchers("/api/comment/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/swagger-ui.html/**").permitAll()
+                .anyRequest().permitAll()
 
                 .and()
                 .apply(new JwtSecurityConfiguration(SECRET_KEY, tokenProvider, userDetailsService));

@@ -1,10 +1,11 @@
 package com.sparta.w6.controller;
 
 
-import com.sparta.mini_6team.controller.response.ResponseDto;
-import com.sparta.mini_6team.request.LoginRequestDto;
-import com.sparta.mini_6team.request.MemberRequestDto;
-import com.sparta.mini_6team.service.MemberService;
+
+import com.sparta.w6.controller.response.ResponseDto;
+import com.sparta.w6.request.LoginRequestDto;
+import com.sparta.w6.request.MemberRequestDto;
+import com.sparta.w6.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

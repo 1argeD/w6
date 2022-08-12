@@ -1,9 +1,10 @@
 package com.sparta.w6.controller;
 
 
-import com.sparta.mini_6team.controller.response.ResponseDto;
-import com.sparta.mini_6team.request.PostRequestDto;
-import com.sparta.mini_6team.service.PostService;
+
+import com.sparta.w6.controller.response.ResponseDto;
+import com.sparta.w6.request.PostRequestDto;
+import com.sparta.w6.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

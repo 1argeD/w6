@@ -2,14 +2,15 @@ package com.sparta.w6.service;
 
 
 
-import com.sparta.mini_6team.controller.response.MemberResponseDto;
-import com.sparta.mini_6team.controller.response.ResponseDto;
-import com.sparta.mini_6team.domain.Member;
-import com.sparta.mini_6team.jwt.TokenProvider;
-import com.sparta.mini_6team.repository.MemberRepository;
-import com.sparta.mini_6team.request.LoginRequestDto;
-import com.sparta.mini_6team.request.MemberRequestDto;
-import com.sparta.mini_6team.request.TokenDto;
+
+import com.sparta.w6.controller.response.MemberResponseDto;
+import com.sparta.w6.controller.response.ResponseDto;
+import com.sparta.w6.domain.Member;
+import com.sparta.w6.jwt.TokenProvider;
+import com.sparta.w6.repository.MemberRepository;
+import com.sparta.w6.request.LoginRequestDto;
+import com.sparta.w6.request.MemberRequestDto;
+import com.sparta.w6.request.TokenDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

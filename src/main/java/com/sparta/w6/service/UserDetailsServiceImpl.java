@@ -2,9 +2,10 @@ package com.sparta.w6.service;
 
 
 
-import com.sparta.mini_6team.domain.Member;
-import com.sparta.mini_6team.domain.UserDetailsImpl;
-import com.sparta.mini_6team.repository.MemberRepository;
+
+import com.sparta.w6.domain.Member;
+import com.sparta.w6.domain.UserDetailsImpl;
+import com.sparta.w6.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,6 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor

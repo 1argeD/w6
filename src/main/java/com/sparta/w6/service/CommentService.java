@@ -1,20 +1,20 @@
 package com.sparta.w6.service;
 
 
-import com.sparta.mini_6team.controller.response.CommentResponseDto;
-import com.sparta.mini_6team.controller.response.ResponseDto;
-import com.sparta.mini_6team.domain.Comment;
-import com.sparta.mini_6team.domain.Member;
-import com.sparta.mini_6team.domain.Post;
-import com.sparta.mini_6team.jwt.TokenProvider;
-import com.sparta.mini_6team.repository.CommentRepository;
-import com.sparta.mini_6team.request.CommentRequestDto;
+
+import com.sparta.w6.controller.response.CommentResponseDto;
+import com.sparta.w6.controller.response.ResponseDto;
+import com.sparta.w6.domain.Comment;
+import com.sparta.w6.domain.Member;
+import com.sparta.w6.domain.Post;
+import com.sparta.w6.jwt.TokenProvider;
+import com.sparta.w6.repository.CommentRepository;
+import com.sparta.w6.request.CommentRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.Optional;
 
 

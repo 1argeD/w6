@@ -1,8 +1,7 @@
 package com.sparta.w6.repository;
 
 
-
-import com.sparta.mini_6team.domain.Member;
+import com.sparta.w6.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

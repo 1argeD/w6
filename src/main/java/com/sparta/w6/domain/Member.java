@@ -23,7 +23,7 @@ public class Member extends Timestamped {
   private Long id;
 
   @Column(nullable = false)
-  private String nickname;
+  private String loginId;
 
   @Column(nullable = false)
   @JsonIgnore

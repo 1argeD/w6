@@ -32,15 +32,15 @@ public class Comment extends Timestamped {
 
   @JsonBackReference
  // 무한루프 해결 (참조점)
-  @JoinColumn(name = "post_id", nullable = false)
+  @JoinColumn(name = "content_id", nullable = false)
   @ManyToOne(fetch = FetchType.LAZY)  // 다대일
-  private Post post;
+  private Content content;
 
   @Column(nullable = false)
-  private String content;
+  private String commentText;
 
-  @Column(nullable = true)
-  @Builder.Default private Long heart = 0l;
+//  @Column(nullable = true)
+//  @Builder.Default private Long heart = 0l;
 
 //  public void updateHeart(Long heart) {
 //    this.heart = heart;
@@ -51,7 +51,7 @@ public class Comment extends Timestamped {
 
 
   public void update(CommentRequestDto commentRequestDto) {
-    this.content = commentRequestDto.getContent();
+    this.commentText = commentRequestDto.getCommentText();
   }
 
   public boolean validateMember(Member member) {

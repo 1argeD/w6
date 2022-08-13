@@ -6,7 +6,7 @@ import com.sparta.w6.controller.response.CommentResponseDto;
 import com.sparta.w6.controller.response.ResponseDto;
 import com.sparta.w6.domain.Comment;
 import com.sparta.w6.domain.Member;
-import com.sparta.w6.domain.Post;
+import com.sparta.w6.domain.Content;
 import com.sparta.w6.jwt.TokenProvider;
 import com.sparta.w6.repository.CommentRepository;
 import com.sparta.w6.request.CommentRequestDto;
@@ -24,7 +24,7 @@ public class CommentService {
 
   private final CommentRepository commentRepository;
   private final TokenProvider tokenProvider;
-  private final PostService postService;
+  private final ContentService contentService;
 
   @Transactional
   public ResponseDto<?> createComment(CommentRequestDto requestDto, HttpServletRequest request) {
@@ -43,43 +43,46 @@ public class CommentService {
       return ResponseDto.fail("INVALID_TOKEN", "Token이 유효하지 않습니다.");
     }
 
-    Post post = postService.isPresentPost(requestDto.getPostId());
-    if (null == post) {
+    Content content = contentService.isPresentContent(requestDto.getContentId());
+    if (null == content) {
       return ResponseDto.fail("NOT_FOUND", "존재하지 않는 게시글 id 입니다.");
     }
 
     Comment comment = Comment.builder()
         .member(member)
-        .post(post)
-        .content(requestDto.getContent())
+        .content(content)
+        .commentText(requestDto.getCommentText())
         .build();
+
     commentRepository.save(comment);
+
     return ResponseDto.success(
         CommentResponseDto.builder()
             .id(comment.getId())
-            .author(comment.getMember().getNickname())
-            .content(comment.getContent())
-//            .heart(comment.getHeart())
+            .author(comment.getMember().getLoginId())
+            .commentText(comment.getCommentText())
             .createdAt(comment.getCreatedAt())
             .modifiedAt(comment.getModifiedAt())
             .build()
     );
   }
-  @Transactional(readOnly = true)
-  public ResponseDto<?> getAllSubCommentsByComment(Long id) {
-    Comment comment = isPresentComment(id);
 
-    return ResponseDto.success(
-            CommentResponseDto.builder()
-                    .id(comment.getId())
-                    .content(comment.getContent())
-                    .author(comment.getMember().getNickname())
-//                    .heart(comment.getHeart())
-                    .createdAt(comment.getCreatedAt())
-                    .modifiedAt(comment.getModifiedAt())
-                    .build()
-    );
-  }
+  //            .heart(comment.getHeart())
+//  @Transactional(readOnly = true)
+//  public ResponseDto<?> getAllSubCommentsByComment(Long id) {
+//    Comment comment = isPresentComment(id);
+//
+//    return ResponseDto.success(
+//            CommentResponseDto.builder()
+//                    .id(comment.getId())
+//                    .commentText(comment.getCommentText())
+//                    .author(comment.getMember().getLoginId())
+////                    .heart(comment.getHeart())
+//                    .createdAt(comment.getCreatedAt())
+//                    .modifiedAt(comment.getModifiedAt())
+//                    .build()
+//    );
+//  }
 
   @Transactional
   public ResponseDto<?> updateComment(Long id, CommentRequestDto requestDto, HttpServletRequest request) {
@@ -98,8 +101,8 @@ public class CommentService {
       return ResponseDto.fail("INVALID_TOKEN", "Token이 유효하지 않습니다.");
     }
 
-    Post post = postService.isPresentPost(requestDto.getPostId());
-    if (null == post) {
+    Content content = contentService.isPresentContent(requestDto.getContentId());
+    if (null == content) {
       return ResponseDto.fail("NOT_FOUND", "존재하지 않는 게시글 id 입니다.");
     }
 
@@ -116,14 +119,15 @@ public class CommentService {
     return ResponseDto.success(
         CommentResponseDto.builder()
             .id(comment.getId())
-            .author(comment.getMember().getNickname())
-            .content(comment.getContent())
+            .author(comment.getMember().getLoginId())
+            .commentText(comment.getCommentText())
 //            .heart(comment.getHeart())
             .createdAt(comment.getCreatedAt())
             .modifiedAt(comment.getModifiedAt())
             .build()
     );
   }
+
 
   @Transactional
   public ResponseDto<?> deleteComment(Long id, HttpServletRequest request) {

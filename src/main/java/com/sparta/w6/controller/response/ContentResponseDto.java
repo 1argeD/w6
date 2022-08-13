@@ -12,10 +12,10 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostResponseDto {
+public class ContentResponseDto {
   private Long id;
   private String title;
-  private String content;
+  private String text;
   private String author;
   private List<CommentResponseDto> commentResponseDtoList;
   private LocalDateTime createdAt;

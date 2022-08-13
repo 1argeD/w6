@@ -33,7 +33,7 @@ public class MemberService {
 
   @Transactional
   public ResponseDto<?> createMember(MemberRequestDto requestDto) {
-    if (null != isPresentMember(requestDto.getNickname())) {
+    if (null != isPresentMember(requestDto.getLoginId())) {
       return ResponseDto.fail("DUPLICATED_NICKNAME",
           "중복된 닉네임 입니다.");
     }
@@ -44,14 +44,14 @@ public class MemberService {
     }
 
     Member member = Member.builder()
-            .nickname(requestDto.getNickname())
+            .loginId(requestDto.getLoginId())
                 .password(passwordEncoder.encode(requestDto.getPassword()))
                     .build();
     memberRepository.save(member);
     return ResponseDto.success(
         MemberResponseDto.builder()
             .id(member.getId())
-            .nickname(member.getNickname())
+            .loginId(member.getLoginId())
             .createdAt(member.getCreatedAt())
             .modifiedAt(member.getModifiedAt())
             .build()
@@ -60,7 +60,7 @@ public class MemberService {
 
   @Transactional
   public ResponseDto<?> login(LoginRequestDto requestDto, HttpServletResponse response) {
-    Member member = isPresentMember(requestDto.getNickname());
+    Member member = isPresentMember(requestDto.getLoginId());
     if (null == member) {
       return ResponseDto.fail("MEMBER_NOT_FOUND",
           "사용자를 찾을 수 없습니다.");
@@ -80,7 +80,7 @@ public class MemberService {
     return ResponseDto.success(
         MemberResponseDto.builder()
             .id(member.getId())
-            .nickname(member.getNickname())
+            .loginId(member.getLoginId())
             .createdAt(member.getCreatedAt())
             .modifiedAt(member.getModifiedAt())
             .build()
@@ -125,8 +125,8 @@ public class MemberService {
   }
 
   @Transactional(readOnly = true)
-  public Member isPresentMember(String nickname) {
-    Optional<Member> optionalMember = memberRepository.findByNickname(nickname);
+  public Member isPresentMember(String loginId) {
+    Optional<Member> optionalMember = memberRepository.findByLoginId(loginId);
     return optionalMember.orElse(null);
   }
 

@@ -5,7 +5,7 @@ package com.sparta.w6.domain;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
-import com.sparta.w6.request.PostRequestDto;
+import com.sparta.w6.request.ContentRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Post extends Timestamped {
+public class Content extends Timestamped {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,14 +29,14 @@ public class Post extends Timestamped {
   private String title;
 
   @Column(nullable = false)
-  private String content;
+  private String text;
 
-  @Column
-  private String imageUrl;
+//  @Column
+//  private String imageUrl;
 
 
   @JsonManagedReference /// 무한루프 매니저 점
-  @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "post")
+  @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "content")
   private List<Comment> comments;
 
 
@@ -45,14 +45,14 @@ public class Post extends Timestamped {
   @ManyToOne(fetch = FetchType.LAZY)
   private Member member;
 
-  public void update(PostRequestDto postRequestDto) {
-    this.title = postRequestDto.getTitle();
-    this.content = postRequestDto.getContent();
+  public void update(ContentRequestDto contentRequestDto) {
+    this.title = contentRequestDto.getTitle();
+    this.text = contentRequestDto.getText();
   }
 
-  public void updateImage(String imageUrl){
-    this.imageUrl = imageUrl;
-  }
+//  public void updateImage(String imageUrl){
+//    this.imageUrl = imageUrl;
+//  }
 
   public boolean validateMember(Member member) {
     return !this.member.equals(member);

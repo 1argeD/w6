@@ -25,7 +25,7 @@ public class ContentController {
     }
 
     @RequestMapping(value = "/api/content/{id}", method = RequestMethod.GET)
-    public ResponseDto<?> getContent(@PathVariable Long id) {
+    public ResponseDto<?> getContent(@PathVariable Long id) throws Exception {
         return contentService.getContent(id);
     }
 
@@ -36,13 +36,13 @@ public class ContentController {
 
     @RequestMapping(value = "/api/content/{id}", method = RequestMethod.PUT)
     public ResponseDto<?> updateContent(@PathVariable Long id, @RequestBody ContentRequestDto contentRequestDto,
-                                     HttpServletRequest request) {
+                                     HttpServletRequest request) throws Exception {
         return contentService.updateContent(id, contentRequestDto, request);
     }
 
     @RequestMapping(value = "/api/content/{id}", method = RequestMethod.DELETE)
     public ResponseDto<?> deleteContent(@PathVariable Long id,
-                                     HttpServletRequest request) {
+                                     HttpServletRequest request) throws Exception {
         return contentService.deleteContent(id, request);
     }
 

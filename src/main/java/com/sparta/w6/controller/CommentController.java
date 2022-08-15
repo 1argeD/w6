@@ -3,6 +3,7 @@ package com.sparta.w6.controller;
 
 
 import com.sparta.w6.controller.response.ResponseDto;
+import com.sparta.w6.domain.Member;
 import com.sparta.w6.request.CommentRequestDto;
 import com.sparta.w6.service.CommentService;
 import lombok.RequiredArgsConstructor;
@@ -21,11 +22,6 @@ public class CommentController {
     public ResponseDto<?> createComment(@RequestBody CommentRequestDto requestDto,
                                         HttpServletRequest request) {
         return commentService.createComment(requestDto, request);
-    }
-
-    @RequestMapping(value = "/api/comment/{id}", method = RequestMethod.GET)
-    public ResponseDto<?> getComment(@PathVariable Long id) {
-        return commentService.getComment(id);
     }
 
     @RequestMapping(value = "/api/comment/{id}", method = RequestMethod.PUT)

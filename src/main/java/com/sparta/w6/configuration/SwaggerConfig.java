@@ -1,4 +1,4 @@
-package com.sparta.w6.shared;
+package com.sparta.w6.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

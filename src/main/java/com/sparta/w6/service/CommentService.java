@@ -3,6 +3,7 @@ package com.sparta.w6.service;
 
 
 import com.sparta.w6.controller.response.CommentResponseDto;
+import com.sparta.w6.controller.response.ContentResponseDto;
 import com.sparta.w6.controller.response.ResponseDto;
 import com.sparta.w6.domain.Comment;
 import com.sparta.w6.domain.Member;
@@ -15,6 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -25,6 +28,7 @@ public class CommentService {
   private final CommentRepository commentRepository;
   private final TokenProvider tokenProvider;
   private final ContentService contentService;
+
 
   @Transactional
   public ResponseDto<?> createComment(CommentRequestDto requestDto, HttpServletRequest request) {
@@ -128,6 +132,24 @@ public class CommentService {
     );
   }
 
+  @Transactional(readOnly = true)
+  public ResponseDto<?> getComment(Long id) {
+    Comment comment = isPresentComment(id);
+    if (null == comment) {
+      return ResponseDto.fail("NOT_FOUND", "존재하지 않는 댓글 id 입니다.");
+    }
+
+    return ResponseDto.success(
+            CommentResponseDto.builder()
+                    .id(comment.getId())
+                    .id(comment.getContent().getId())
+                    .commentText(comment.getCommentText())
+                    .author(comment.getMember().getLoginId())
+                    .createdAt(comment.getCreatedAt())
+                    .modifiedAt(comment.getModifiedAt())
+                    .build()
+    );
+  }
 
   @Transactional
   public ResponseDto<?> deleteComment(Long id, HttpServletRequest request) {
@@ -172,5 +194,7 @@ public class CommentService {
     }
     return tokenProvider.getMemberFromAuthentication();
   }
+
+
 
 }

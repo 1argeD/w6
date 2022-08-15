@@ -23,6 +23,10 @@ public class CommentController {
         return commentService.createComment(requestDto, request);
     }
 
+    @RequestMapping(value = "/api/comment/{id}", method = RequestMethod.GET)
+    public ResponseDto<?> getComment(@PathVariable Long id) {
+        return commentService.getComment(id);
+    }
 
     @RequestMapping(value = "/api/comment/{id}", method = RequestMethod.PUT)
     public ResponseDto<?> updateComment(@PathVariable Long id, @RequestBody CommentRequestDto requestDto,

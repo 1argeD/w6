@@ -71,6 +71,8 @@ public class SecurityConfiguration {
                 .antMatchers("/api/comment/**").permitAll()
                 .antMatchers("/swagger-ui.html/**").permitAll()
                 .anyRequest().permitAll()
+                .and()
+                .oauth2Login()
 
                 .and()
                 .apply(new JwtSecurityConfiguration(SECRET_KEY, tokenProvider, userDetailsService));

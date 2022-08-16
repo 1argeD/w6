@@ -8,10 +8,7 @@ import com.sparta.w6.request.MemberRequestDto;
 import com.sparta.w6.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,6 +37,10 @@ public class MemberController {
 //  public ResponseDto<?> reissue(HttpServletRequest request, HttpServletResponse response) {
 //    return memberService.reissue(request, response);
 //  }
+@GetMapping("/user/kakao/callback")
+public ResponseDto<?> kakaoLogin(@RequestParam String code, HttpServletResponse response){
+    return memberService.kakaoLogin(code, response);
+}
 
     @RequestMapping(value = "/api/member/logout", method = RequestMethod.POST)
     public ResponseDto<?> logout(HttpServletRequest request) {

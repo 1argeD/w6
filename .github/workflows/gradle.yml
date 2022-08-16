@@ -7,7 +7,7 @@ on:
     branches: [ DDDD ]
 
 env:
-  S3_BUCKET_NAME: sparta-springblog
+  S3_BUCKET_NAME: 6team-deploy
 
 jobs:
   build:

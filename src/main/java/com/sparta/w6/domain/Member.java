@@ -9,6 +9,7 @@ import org.hibernate.Hibernate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Builder
@@ -26,9 +27,13 @@ public class Member extends Timestamped {
   private String loginId;
 
   @Column(nullable = false)
-  @JsonIgnore
+  private Long kakaoId;
+
+  @Column(nullable = false)
   private String password;
 
+  @Column(nullable = false)
+  private String username;
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -48,5 +53,16 @@ public class Member extends Timestamped {
 
   public boolean validatePassword(PasswordEncoder passwordEncoder, String password) {
     return passwordEncoder.matches(password, this.password);
+  }
+
+  public boolean Member (Object o) {
+    if (this== o){
+      return true;
+    }
+    if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)){
+      return false;
+    }
+    Member member = (Member) o;
+    return id != null && Objects.equals(id, member.id);
   }
 }

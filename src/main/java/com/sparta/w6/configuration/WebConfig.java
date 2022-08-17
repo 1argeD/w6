@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry){
         registry.addMapping("/**")
-                .exposedHeaders("Authorization", "Refresh-Token")
+                .exposedHeaders("Authorization", "refreshToken")
                 .allowedOrigins("http://localhost:3000")
                 .allowedMethods("*")
                 .allowCredentials(true)

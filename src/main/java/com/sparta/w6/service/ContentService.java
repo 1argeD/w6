@@ -1,11 +1,5 @@
 package com.sparta.w6.service;
 
-
-
-
-
-
-
 import com.sparta.w6.controller.response.CommentResponseDto;
 import com.sparta.w6.controller.response.ContentResponseDto;
 import com.sparta.w6.controller.response.ResponseDto;
@@ -80,11 +74,11 @@ public class ContentService {
         }
 
         List<Comment> commentList = commentRepository.findAllByContent(content);
-        List<CommentResponseDto> commentResponseDtoList = new ArrayList<>();
+        List<CommentResponseDto> comments = new ArrayList<>();
 
         for (Comment comment : commentList) {
 
-            commentResponseDtoList.add(
+            comments.add(
                     CommentResponseDto.builder()
                             .id(comment.getId())
                             .author(comment.getMember().getLoginId())
@@ -100,7 +94,7 @@ public class ContentService {
                         .id(content.getId())
                         .title(content.getTitle())
                         .text(content.getText())
-                        .commentResponseDtoList(commentResponseDtoList)
+                        .comments(comments)
                         .author(content.getMember().getLoginId())
                         .createdAt(content.getCreatedAt())
                         .modifiedAt(content.getModifiedAt())

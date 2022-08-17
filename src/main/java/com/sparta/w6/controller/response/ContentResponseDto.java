@@ -17,7 +17,7 @@ public class ContentResponseDto {
   private String title;
   private String text;
   private String author;
-  private List<CommentResponseDto> commentResponseDtoList;
+  private List<CommentResponseDto> comments;
   private LocalDateTime createdAt;
   private LocalDateTime modifiedAt;
 }

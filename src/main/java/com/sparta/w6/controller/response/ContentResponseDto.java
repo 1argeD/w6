@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ContentResponseDto {
   private Long id;
+  private String url;
   private String title;
   private String text;
   private String author;

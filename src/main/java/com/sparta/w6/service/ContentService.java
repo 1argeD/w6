@@ -55,6 +55,7 @@ public class ContentService {
         }
 
         Content content = Content.builder()
+                .url(requestDto.getUrl())
                 .title(requestDto.getTitle())
                 .text(requestDto.getText())
                 .member(member)
@@ -63,6 +64,7 @@ public class ContentService {
         return ResponseDto.success(
                 ContentResponseDto.builder()
                         .id(content.getId())
+                        .url(content.getUrl())
                         .title(content.getTitle())
                         .text(content.getText())
                         .author(content.getMember().getLoginId())
@@ -98,6 +100,7 @@ public class ContentService {
         return ResponseDto.success(
                 ContentResponseDto.builder()
                         .id(content.getId())
+                        .url(content.getUrl())
                         .title(content.getTitle())
                         .text(content.getText())
                         .commentResponseDtoList(commentResponseDtoList)

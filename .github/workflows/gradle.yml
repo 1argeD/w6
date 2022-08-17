@@ -58,11 +58,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-        run: |
-          aws s3 cp \
-          --region ap-northeast-2 \
-          --acl private \
-          ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip
+        run: aws s3 cp --region ap-northeast-2 --acl private ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip
 
       # Deploy
       - name: Deploy
@@ -70,10 +66,4 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-        run: |
-          aws deploy create-deployment \
-          --application-name team6 \
-          --deployment-group-name team6 \
-          --file-exists-behavior OVERWRITE \
-          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHA.zip \
-          --region ap-northeast-2
+        run: aws deploy create-deployment --application-name team6  --deployment-group-name team6 --file-exists-behavior OVERWRITE  --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHA.zip  --region ap-northeast-2

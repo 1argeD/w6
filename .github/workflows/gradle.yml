@@ -7,7 +7,7 @@ on:
     branches: [ DDDD ]
 
 env:
-  S3_BUCKET_NAME: team6-deploy
+  S3_BUCKET_NAME: 6teambucket
 
 jobs:
   build:

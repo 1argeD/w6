@@ -8,6 +8,7 @@ on:
 
 env:
   S3_BUCKET_NAME: 6teambucket
+  PROJECT_NAME: w6
 
 jobs:
   build:

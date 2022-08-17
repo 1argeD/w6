@@ -34,7 +34,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Service
 public class MemberService {
-
     private final MemberRepository memberRepository;
 
     private final PasswordEncoder passwordEncoder;
@@ -134,7 +133,7 @@ public class MemberService {
             KakaoUserInfoDto kakaoUserInfo = getKakaoUserInfo(accessToken);
 
             // DB 에 중복된 Kakao Id 가 있는지 확인
-            Long kakaoId = kakaoUserInfo.getId();
+            Long kakaoId = kakaoUserInfo.getKakaoId();
             Member kakaoUser = memberRepository.findByKakaoId(kakaoId);
             if(kakaoUser != null){
                 TokenDto tokenDto = tokenProvider.generateTokenDto(kakaoUser);
@@ -151,7 +150,8 @@ public class MemberService {
             else{
                 // 회원가입
                 Member member = Member.builder()
-                        .username(UUID.randomUUID().toString())
+                        .loginId(UUID.randomUUID().toString())
+                        .username(kakaoUserInfo.getUsername())
                         .password(passwordEncoder.encode(UUID.randomUUID().toString()))
                         .kakaoId(kakaoId)
                         .build();

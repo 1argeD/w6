@@ -9,7 +9,6 @@ import org.hibernate.Hibernate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Builder
@@ -26,7 +25,7 @@ public class Member extends Timestamped {
   @Column(nullable = false)
   private String loginId;
 
-  @Column(nullable = false)
+  @Column(nullable = true)
   private Long kakaoId;
 
   @Column(nullable = false)

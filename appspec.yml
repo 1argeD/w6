@@ -12,11 +12,7 @@ owner: ubuntu
 group: ubuntu
 
 hooks:
-  #ApplicationStart:
-  #- location: scripts/deploy.sh
-  #timeout: 60
-  #runas: ubuntu
-  AfterInstall:
-    - location: scripts/after-deploy.sh
-      timeout: 180
-      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/deploy.sh
+  timeout: 60
+  runas: ubuntu

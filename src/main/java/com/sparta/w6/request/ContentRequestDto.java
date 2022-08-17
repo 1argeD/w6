@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContentRequestDto {
+  private String url;
   private String title;
   private String text;
 }

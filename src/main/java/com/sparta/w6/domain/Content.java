@@ -31,8 +31,8 @@ public class Content extends Timestamped {
   @Column(nullable = false)
   private String text;
 
-//  @Column
-//  private String imageUrl;
+  @Column
+  private String url;
 
 
   @JsonManagedReference /// 무한루프 매니저 점

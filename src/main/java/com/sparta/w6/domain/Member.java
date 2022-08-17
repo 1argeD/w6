@@ -31,7 +31,7 @@ public class Member extends Timestamped {
   @Column(nullable = false)
   private String password;
 
-  @Column(nullable = false)
+  @Column(nullable = true)
   private String username;
   @Override
   public boolean equals(Object o) {

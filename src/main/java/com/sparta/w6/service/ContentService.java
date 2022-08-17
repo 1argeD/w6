@@ -39,7 +39,7 @@ public class ContentService {
 
     @Transactional
     public ResponseDto<?> createContent(ContentRequestDto requestDto, HttpServletRequest request) {
-        if (null == request.getHeader("Refresh-Token")) {
+        if (null == request.getHeader("refreshToken")) {
             return ResponseDto.fail("MEMBER_NOT_FOUND",
                     "로그인이 필요합니다.");
         }
@@ -115,7 +115,7 @@ public class ContentService {
 
     @Transactional
     public ResponseDto<Content> updateContent(Long id, ContentRequestDto requestDto, HttpServletRequest request) {
-        if (null == request.getHeader("Refresh-Token")) {
+        if (null == request.getHeader("refreshToken")) {
             return ResponseDto.fail("MEMBER_NOT_FOUND",
                     "로그인이 필요합니다.");
         }
@@ -145,7 +145,7 @@ public class ContentService {
 
     @Transactional
     public ResponseDto<?> deleteContent(Long id, HttpServletRequest request) {
-        if (null == request.getHeader("Refresh-Token")) {
+        if (null == request.getHeader("refreshToken")) {
             return ResponseDto.fail("MEMBER_NOT_FOUND",
                     "로그인이 필요합니다.");
         }
@@ -181,7 +181,7 @@ public class ContentService {
 
     @Transactional
     public Member validateMember(HttpServletRequest request) {
-        if (!tokenProvider.validateToken(request.getHeader("Refresh-Token"))) {
+        if (!tokenProvider.validateToken(request.getHeader("refreshToken"))) {
             return null;
         }
         return tokenProvider.getMemberFromAuthentication();

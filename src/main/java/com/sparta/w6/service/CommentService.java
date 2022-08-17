@@ -28,7 +28,7 @@ public class CommentService {
 
   @Transactional
   public ResponseDto<?> createComment(CommentRequestDto requestDto, HttpServletRequest request) {
-    if (null == request.getHeader("Refresh-Token")) {
+    if (null == request.getHeader("refreshToken")) {
       return ResponseDto.fail("MEMBER_NOT_FOUND",
           "로그인이 필요합니다.");
     }
@@ -86,7 +86,7 @@ public class CommentService {
 
   @Transactional
   public ResponseDto<?> updateComment(Long id, CommentRequestDto requestDto, HttpServletRequest request) {
-    if (null == request.getHeader("Refresh-Token")) {
+    if (null == request.getHeader("refreshToken")) {
       return ResponseDto.fail("MEMBER_NOT_FOUND",
           "로그인이 필요합니다.");
     }
@@ -131,7 +131,7 @@ public class CommentService {
 
   @Transactional
   public ResponseDto<?> deleteComment(Long id, HttpServletRequest request) {
-    if (null == request.getHeader("Refresh-Token")) {
+    if (null == request.getHeader("refreshToken")) {
       return ResponseDto.fail("MEMBER_NOT_FOUND",
           "로그인이 필요합니다.");
     }
@@ -167,7 +167,7 @@ public class CommentService {
 
   @Transactional
   public Member validateMember(HttpServletRequest request) {
-    if (!tokenProvider.validateToken(request.getHeader("Refresh-Token"))) {
+    if (!tokenProvider.validateToken(request.getHeader("refreshToken"))) {
       return null;
     }
     return tokenProvider.getMemberFromAuthentication();

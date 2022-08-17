@@ -60,7 +60,7 @@ jobs:
           aws s3 cp \
           --region ap-northeast-2 \
           --acl private \
-          ./springboot-intro-build.zip s3://springboot-intro-build/
+          ./springboot-intro-build.zip s3://6teambucket/
 
       # Deploy
       - name: Deploy
@@ -72,5 +72,5 @@ jobs:
           --application-name team6 \
           --deployment-group-name team6 \
           --file-exists-behavior OVERWRITE \
-          --s3-location bucket=springboot-intro-build,bundleType=zip,key=springboot-intro-build.zip \
+          --s3-location bucket=6teambucket,bundleType=zip,key=springboot-intro-build.zip \
           --region ap-northeast-2

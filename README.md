@@ -62,7 +62,7 @@ https://youtu.be/STdzsc6nsyQ
 
 <hr/>
 
-### 💖 About Front-End and Back-End
+### 💖 About Back-End
 
 #### 👪 &nbsp; 팀원
 

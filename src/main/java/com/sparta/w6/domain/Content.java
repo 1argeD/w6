@@ -2,6 +2,7 @@ package com.sparta.w6.domain;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -35,14 +36,15 @@ public class Content extends Timestamped {
   private String url;
 
 
-  @JsonManagedReference /// 무한루프 매니저 점
-  @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "content")
+  @JsonIgnore
+  @OneToMany(mappedBy = "content", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Comment> comments;
 
 
 
   @JoinColumn(name = "member_id", nullable = false)
   @ManyToOne(fetch = FetchType.LAZY)
+  @JsonIgnore
   private Member member;
 
   public void update(ContentRequestDto contentRequestDto) {

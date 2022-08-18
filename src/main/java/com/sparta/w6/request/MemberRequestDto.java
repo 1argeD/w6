@@ -26,7 +26,7 @@ public class MemberRequestDto {
   @NotBlank
   private String passwordConfirm;
 
-  @NotBlank
+
   @Size(min = 4, max =  8)
   @Pattern(regexp = "[a-zA-Z가-힣\\d]*${3,32}")
   private String username;
